@@ -44,6 +44,8 @@ void getArguments(char **arguments){
 }
 
 int main() {
+ 
+ signal(SIGCHLD,func);
 
  while(1){
  
@@ -75,7 +77,6 @@ int main() {
  
  
  if(!isBackground){
- signal(SIGCHLD,func);
  waitpid(pid,&status,0);
  
  }
